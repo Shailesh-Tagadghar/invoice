@@ -1,0 +1,10 @@
+body{
+    background-color: bisque;
+    align-items: center;
+    text-align: center;
+}
+
+.name{
+    color: red;
+    font-size: 40px;
+}
