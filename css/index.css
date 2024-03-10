@@ -1,10 +1,48 @@
-body{
-    background-color: bisque;
+body {
+    /* margin: 0; */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    /* height: 100vh; */
+    background-color: bisque;
+}
+.container {
+    width: 80%; /* Adjust the width as needed */
 }
 
 .name{
     color: red;
     font-size: 40px;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    align-content: center;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.add-row {
+    cursor: pointer;
+    color: blue;
+    font-weight: bold;
+}
+
+button{
+    justify-content: center
+}
+
+.hide-pdf, .hide-print, .hide-excel {
+    display: none;
 }
