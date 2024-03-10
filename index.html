@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billing Invoice</title>
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
 </head>
+
 <body>
+    <div class="container">
     <h1 class="name">Billing Invoice Page</h1>
+    <table id="invoice-table">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Product Desc</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" name="sr_no[]" class="sr-no"></td>
+                <td><input type="text" name="product_desc[]" class="product-desc"></td>
+                <td><input type="number" name="quantity[]" class="quantity"></td>
+                <td><input type="number" name="price[]" class="price"></td>
+                <td><input type="number" name="total[]" class="total" readonly></td>
+                <td><span class="add-row">+</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button onclick="downloadPDF()">Download PDF</button>
+    <button onclick="printInvoice()">Print</button>
+    <button onclick="downloadExcel()">Download Excel</button>
+</div>
+
+    <!-- Include html2pdf.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 </body>
+
 </html>
