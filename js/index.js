@@ -115,3 +115,21 @@ function saveAndOpen() {
     var queryParams = `?customerName=${encodeURIComponent(customerName)}&customerMobile=${encodeURIComponent(customerMobile)}&customerEmail=${encodeURIComponent(customerEmail)}&customerAddress=${encodeURIComponent(customerAddress)}`;
     var newWindow = window.open(`invoice.html${queryParams}`);
 }
+
+// function downloadPDF() {
+//     const doc = new jsPDF();
+//     const htmlContent = document.querySelector('.container').innerHTML;
+//     doc.html(htmlContent, {
+//         callback: function (doc) {
+//             doc.save("invoice.pdf");
+//         }
+//     });
+// }
+
+// function downloadExcel() {
+//     const table = document.getElementById('productDetailsTable');
+//     const ws = XLSX.utils.table_to_sheet(table);
+//     const wb = XLSX.utils.book_new();
+//     XLSX.utils.book_append_sheet(wb, ws, 'Invoice');
+//     XLSX.writeFile(wb, 'invoice.xlsx');
+// }
