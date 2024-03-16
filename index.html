@@ -177,76 +177,8 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
 
-<!--     <script src="/js/index.js"></script> -->
 
-    <script>
-        function getTotal() {
-    var table = document.getElementById('invoiceTable');
-    var rows = table.getElementsByTagName('tr');
-    
-    for (var i = 1; i < rows.length - 1; i++) {
-        var price = rows[i].querySelector('.item_price').value;
-        var qty = rows[i].querySelector('.item_qty').value;
-        var tot = price * qty;
-        rows[i].querySelector('.total').value = tot;
-    }
-    
-    calculateSubtotal();
-}
-
-function calculateSubtotal() {
-    var table = document.getElementById('invoiceTable');
-    var rows = table.getElementsByTagName('tr');
-    var subtotal = 0;
-    
-    for (var i = 1; i < rows.length - 1; i++) {
-        subtotal += parseFloat(rows[i].querySelector('.total').value);
-    }
-    
-    document.getElementById('subtotal').value = subtotal;
-    calculateTax();
-}
-
-function calculateTax() {
-    var subtotal = parseFloat(document.getElementById('subtotal').value);
-    var tax = parseFloat(document.getElementById('tax').value);
-    var taxAmount = (tax * subtotal) / 100;
-    var netTotal = subtotal + taxAmount;
-    
-    document.getElementById('taxtt1').value = taxAmount;
-    document.getElementById('Nettotal').value = netTotal;
-}
-
-function addRow() {
-    var table = document.getElementById("invoiceTable");
-    var row = table.insertRow(table.rows.length - 1); // Insert before the last row (before the totals row)
-    
-    row.innerHTML = `
-        <td><button onclick="removeRow(this)" class="btn btn-danger">-</button></td>
-        <td><input type="number" value="${table.rows.length - 2}" class="form-control item_no" readonly></td>
-        <td><input type="text" class="form-control item_name"></td>
-        <td><input type="number" class="form-control item_price" onkeyup="getTotal()"></td>
-        <td><input type="number" value="1" class="form-control item_qty" onkeyup="getTotal()"></td>
-        <td><input type="text" class="form-control total" readonly></td>
-    `;
-}
-
-function removeRow(btn) {
-    var row = btn.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-    calculateSubtotal();
-}
-
-function saveAndOpen() {
-    var customerName = document.getElementById('customerName').value;
-    var customerMobile = document.getElementById('customerMobile').value;
-    var customerEmail = document.getElementById('customerEmail').value;
-    var customerAddress = document.getElementById('customerAddress').value;
-
-    var queryParams = `?customerName=${encodeURIComponent(customerName)}&customerMobile=${encodeURIComponent(customerMobile)}&customerEmail=${encodeURIComponent(customerEmail)}&customerAddress=${encodeURIComponent(customerAddress)}`;
-    var newWindow = window.open(`invoice.html${queryParams}`);
-}
-    </script>
+    <script src="/js/index.js"></script>
 
     <!-- Include the jsPDF library -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
